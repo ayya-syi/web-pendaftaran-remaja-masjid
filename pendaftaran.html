@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masjid 99 Kubah</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar bg-dark text-white py-1 overflow-hidden">
+  <div class="scroll-text">
+    Jalan Haji Bau No. 36, Kunjung Mae, Kec. Mariso, Kota Makassar, Sulawesi Selatan. Terletak di kawasan reklamasi Center Point of Indonesia (CPI), dekat Anjungan Pantai Losari.
+  </div>
+</div>
+
+<div class="container d-flex align-items-center justify-content-between py-3 mt-2">
+  <div class="d-flex align-items-center">
+    <img src="Logo-Masjid-99-kubah.jpg" alt="Logo Masjid 99 Kubah" width="60" class="me-3">
+    <h4 class="mb-0">Welcome to Masjid 99 Kubah</h4>
+  </div>
+  <div id="prayer-times" class="text-end small"></div>
+</div>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 bg-white p-4 shadow rounded">
+      <h3 class="mb-4 text-center">Formulir Pendaftaran Remaja Masjid</h3>
+      <form id="formDaftar">
+        <div class="mb-3">
+          <label for="nama" class="form-label">Nama Lengkap</label>
+          <input type="text" class="form-control" id="nama" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+          <input type="date" class="form-control" id="tanggal_lahir" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="alamat" class="form-label">Alamat</label>
+          <textarea class="form-control" id="alamat" rows="3" required></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="no_hp" class="form-label">No HP</label>
+          <input type="tel" class="form-control" id="no_hp" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="divisi" class="form-label">Bagian Divisi</label>
+          <select class="form-select" id="divisi" required>
+            <option value="" disabled selected>Pilih Divisi</option>
+            <option value="Pengajian Rutin">Pengajian Rutin</option>
+            <option value="Ibadah Berjamaah">Ibadah Berjamaah</option>
+            <option value="Bakti Sosial">Bakti Sosial</option>
+            <option value="Dokumentasi">Dokumentasi</option>
+          </select>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <a href="home01.html" class="btn btn-secondary">Back</a>
+          <button type="submit" class="btn btn-primary">Daftar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-3 mt-5">
+  © 2025 masjid99kubah
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Simpan dan redirect setelah submit
+  document.getElementById('formDaftar').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const dataBaru = {
+      nama: document.getElementById('nama').value,
+      tanggal_lahir: document.getElementById('tanggal_lahir').value,
+      alamat: document.getElementById('alamat').value,
+      no_hp: document.getElementById('no_hp').value,
+      divisi: document.getElementById('divisi').value
+    };
+
+    let dataLama = JSON.parse(localStorage.getItem('data_remaja')) || [];
+    dataLama.push(dataBaru);
+    localStorage.setItem('data_remaja', JSON.stringify(dataLama));
+
+    // Redirect ke halaman data setelah pendaftaran
+    window.location.href = "home_admin.html";
+  });
+</script>
+
+</body>
+</html>

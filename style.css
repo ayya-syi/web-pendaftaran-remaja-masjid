@@ -1,0 +1,132 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Body Relative untuk posisi absolut anak */
+body {
+  position: relative;
+  background-color: #ccc;
+}
+
+/* Topbar Scroll Text */
+.topbar {
+  position: relative;
+  overflow: hidden;
+  background: #222;
+  height: 40px;
+  color: white;
+}
+
+.scroll-text {
+  position: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 20s linear infinite;
+  font-size: 18px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Navbar Mengambang */
+.custom-navbar {
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 9px 10px rgba(0,0,0,0.1);
+  padding: 10px 90px;
+  z-index: 10;
+}
+
+.nav-link {
+  font-weight: bold;
+  color: #00695c !important;
+}
+
+.nav-link.text-success {
+  background-color: #d4edda !important;
+  border-radius: 5px;
+}
+
+/* Search Box */
+form.d-flex input[type="search"] {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+}
+
+form.d-flex button {
+  border-radius: 5px;
+  padding: 4px 12px;
+  background-color: #009688;
+  border: none;
+  color: white;
+}
+
+/* Carousel Caption */
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 50px;
+}
+
+/* Gambar Responsif */
+.img-fluid {
+  border-radius: 50px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .custom-navbar {
+    width: 90%;
+    padding: 10px 20px;
+    top: 320px;
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; /* tambahkan margin jika perlu */
+}
+
+.btn-kiri, .btn-kanan {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
